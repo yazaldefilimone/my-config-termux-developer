@@ -1,3 +1,7 @@
+
+" Author: Yazalde Filimone Pinto
+" github: https://github.com/yazaldefilimonepinto
+
 call plug#begin()
   Plug 'sheerun/vim-polyglot'
   Plug 'preservim/nerdtree'
