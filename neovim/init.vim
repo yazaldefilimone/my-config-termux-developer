@@ -2,6 +2,23 @@
 " Author: Yazalde Filimone Pinto
 " github: https://github.com/yazaldefilimonepinto
 
+if empty(glob('~/.local/share/nvim/site/autoload/plug.vim'))
+    silent !curl -fLo ~/.local/share/nvim/site/autoload/plug.vim --create-dirs
+      \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+
+autocmd VimEnter *
+  \ if !empty(filter(copy(g:plugs), '!isdirectory(v:val.dir)'))
+  \ | PlugInstall | q
+  \ | endif
+
+
+
+
+
+
 call plug#begin()
   Plug 'sheerun/vim-polyglot'
   Plug 'preservim/nerdtree'
@@ -30,7 +47,7 @@ call plug#end()
 
 
 
-let g:coc_global_extensions = ['coc-snippets','coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-eslint', 'coc-tsserver']
+let g:coc_global_extensions = ['coc-emmet', 'coc-css', 'coc-html', 'coc-json', 'coc-eslint', 'coc-tsserver']
  
 
 
@@ -61,14 +78,14 @@ set tabstop=2
 
 
 
-"colorschem dracula
 
 "...
 set termguicolors     " enable true colors support
 let ayucolor="light"  " for light version of theme
 let ayucolor="mirage" " for mirage version of theme
 let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+colorschem dracula
+"colorscheme ayu
 
 nnoremap <C-n> :NERDTreeToggle<CR>
 let NERDTreeShowHidden=1
@@ -77,7 +94,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#switch_buffers_and_tabs = 1
 let g:airline#extensions#tabline#tab_nr_type = 1
-let g:airline_theme='ayu'
+let g:airline_theme='dracula'
 
 " outers
 let &t_ZH="\e[3m"

@@ -10,5 +10,6 @@ if [ ! -e $ruta/.termux/termux.properties ]; then
 echo "extra-keys = [['ESC','/','-','HOME','UP','END','PGUP'],['TAB','CTRL','ALT','LEFT','DOWN','RIGHT','PGDN']]" >> $ruta/.termux/termux.properties
 fi
 termux-reload-settings
-sleep 2
+
+echo "sucessfully process!!!!"
 exit
